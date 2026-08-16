@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://cgg1gy8u8qthd"]
+
+[ext_resource type="Script" uid="uid://boudnf62p4sqc" path="res://scripts/sword.gd" id="1_n355p"]
+[ext_resource type="Texture2D" uid="uid://d2vliqdab56eh" path="res://assets/weapons_and_projectiles/weapons_animated.png" id="1_ycbs3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n355p"]
+atlas = ExtResource("1_ycbs3")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4ec8"]
+atlas = ExtResource("1_ycbs3")
+region = Rect2(48, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5whp"]
+atlas = ExtResource("1_ycbs3")
+region = Rect2(96, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yp6w"]
+atlas = ExtResource("1_ycbs3")
+region = Rect2(144, 96, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnw8x"]
+atlas = ExtResource("1_ycbs3")
+region = Rect2(192, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgoie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n355p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4ec8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5whp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yp6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnw8x")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mgoie"]
+b = Vector2(12.662327, -7.5937777)
+
+[sub_resource type="Animation" id="Animation_ycbs3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n355p"]
+resource_name = "swordSwing"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(7, -3), Vector2(6, -5), Vector2(7.0000005, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.28153694, 1.0341508]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4ec8"]
+_data = {
+&"RESET": SubResource("Animation_ycbs3"),
+&"swordSwing": SubResource("Animation_n355p")
+}
+
+[node name="Sword" type="Area2D" unique_id=1210744988]
+visible = false
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_n355p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1749355389]
+sprite_frames = SubResource("SpriteFrames_mgoie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=333106661]
+position = Vector2(7, -3)
+shape = SubResource("SegmentShape2D_mgoie")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=623260607]
+libraries/ = SubResource("AnimationLibrary_s4ec8")
+speed_scale = 0.8
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
