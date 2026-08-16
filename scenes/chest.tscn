@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvjmda28bo3mn"]
 
 [ext_resource type="Texture2D" uid="uid://cg7gmehpthk7o" path="res://assets/props/animated_props.png" id="1_oii8l"]
+[ext_resource type="Script" uid="uid://q2qc8fitfbga" path="res://scripts/chest.gd" id="1_sy5e1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy5e1"]
 atlas = ExtResource("1_oii8l")
@@ -34,7 +35,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgoie"]
 size = Vector2(16, 16)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mgoie"]
+radius = 24.0
+
 [node name="Chest" type="StaticBody2D" unique_id=733935734]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_sy5e1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1150066746]
 sprite_frames = SubResource("SpriteFrames_mgoie")
@@ -42,3 +49,12 @@ animation = &"openChest"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1959422308]
 shape = SubResource("RectangleShape2D_mgoie")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=464839036]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1252495722]
+shape = SubResource("CircleShape2D_mgoie")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

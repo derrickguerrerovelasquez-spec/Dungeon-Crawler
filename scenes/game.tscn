@@ -744,8 +744,7 @@ zoom = Vector2(4, 4)
 
 [node name="Rat" parent="Enemies" unique_id=1300928759 instance=ExtResource("6_p57ef")]
 position = Vector2(-40, 40)
-collision_layer = 4
-collision_mask = 4
+collision_mask = 8
 
 [node name="Chest" parent="." unique_id=733935734 instance=ExtResource("9_0tnpc")]
 z_index = 1

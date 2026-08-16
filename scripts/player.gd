@@ -33,6 +33,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		speed = 55
 		sword.visible = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()

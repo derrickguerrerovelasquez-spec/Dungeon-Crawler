@@ -88,6 +88,8 @@ animations = [{
 size = Vector2(8, 5)
 
 [node name="Rat" type="CharacterBody2D" unique_id=1300928759]
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("1_77a1s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=493985155]

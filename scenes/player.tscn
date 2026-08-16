@@ -69,6 +69,8 @@ animations = [{
 size = Vector2(8, 15)
 
 [node name="Player" type="CharacterBody2D" unique_id=593370623]
+collision_layer = 2
+collision_mask = 101
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=677487447]
 sprite_frames = SubResource("SpriteFrames_mgoie")
